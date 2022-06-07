@@ -11,5 +11,5 @@ import com.meli.interview.back.subscription_api.session.User;
  * @author Raul Rodriguez
  */
 public interface IUserDAO {
-    public User createUser(String id, String name);
+    public void createUser(User user);
 }

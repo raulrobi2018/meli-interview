@@ -6,6 +6,7 @@ package com.meli.interview.back.subscription_api.user;
 
 import com.meli.interview.back.subscription_api.session.User;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -18,8 +19,9 @@ public class UserDAO implements IUserDAO{
     private EntityManager em;
     
     @Override
-    public User createUser(String id, String name) {
-        return new User(id, name);
+    @Transactional
+    public void createUser(User user) {
+        em.persist(user);
     }
     
 }
