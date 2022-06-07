@@ -4,7 +4,7 @@
  */
 package com.meli.interview.back.subscription_api.subscription;
 
-import com.meli.interview.back.subscription_api.session.User;
+import com.meli.interview.back.subscription_api.user.User;
 
 /**
  *

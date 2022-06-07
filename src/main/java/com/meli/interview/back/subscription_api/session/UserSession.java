@@ -1,5 +1,6 @@
 package com.meli.interview.back.subscription_api.session;
 
+import com.meli.interview.back.subscription_api.user.User;
 import com.meli.interview.back.subscription_api.exception.CollaboratorCallException;
 
 public class UserSession {
@@ -14,7 +15,6 @@ public class UserSession {
     }
 
     public User getLoggedUser() {        
-        return userSession;
         throw new CollaboratorCallException(
             "UserSession.getLoggedUser() should not be called in an unit test");
     }

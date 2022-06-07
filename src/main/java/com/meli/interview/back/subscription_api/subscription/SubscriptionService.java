@@ -1,7 +1,7 @@
 package com.meli.interview.back.subscription_api.subscription;
 
 import com.meli.interview.back.subscription_api.exception.UserNotLoggedInException;
-import com.meli.interview.back.subscription_api.session.User;
+import com.meli.interview.back.subscription_api.user.User;
 import com.meli.interview.back.subscription_api.session.UserSession;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class SubscriptionService implements ISubscription {
     
     /**
      * Devuelve el costo total de las suscripciones de un usuario siempre que el
-     * usuario que estÃ© logueado se encuentre en su lista de amigos
+     * usuario que esta logueado se encuentre en su lista de amigos
      *
      * @param user
      * @return costo total de la suscripciones del user
@@ -26,7 +26,7 @@ public class SubscriptionService implements ISubscription {
     public Float getUserSubscriptionsCost(User user) throws UserNotLoggedInException {
         float totalPrice = 0;
 
-        //Código controlado por try-catch
+        //Codigo controlado por try-catch
         try {
 
             // get logged user
@@ -34,9 +34,9 @@ public class SubscriptionService implements ISubscription {
             boolean isFriend = false;
             if (loggedUser != null) {
                 for (User friend : user.getFriends()) {
-                    //Usar equals, no operador de comparación ==
+                    //Usar equals, no operador de comparacion == si es un string
                     //Se controla el id del usuario logueado con el del friend            
-                    if (friend.getId().equals(loggedUser.getId())) {
+                    if (friend.getId() == loggedUser.getId()) {
                         isFriend = true;
                         break;
                     }

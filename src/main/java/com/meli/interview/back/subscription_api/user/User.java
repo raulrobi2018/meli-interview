@@ -1,4 +1,4 @@
-package com.meli.interview.back.subscription_api.session;
+package com.meli.interview.back.subscription_api.user;
 
 import com.meli.interview.back.subscription_api.subscription.Subscription;
 import java.io.Serializable;
@@ -7,6 +7,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,13 +19,17 @@ public class User implements Serializable {
     //Este atributo es mejor que sea long
     @Id
     @Column(name = "id")
-    private String id;
+    private long id;
     
     @Column(name="user_name")
     private String name;
 
-    //No inicializar arrays a menos que se quieran crear una única vez
+    //No inicializar arrays a menos que se quieran crear una unica vez
+    @OneToMany
+    @JoinColumn(nullable = true, name = "comprobante_id")
     private List<Subscription> subscriptions;
+    
+    @OneToMany
     private List<User> friends;
 
     public List<User> getFriends() {
@@ -41,11 +48,11 @@ public class User implements Serializable {
         return subscriptions;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

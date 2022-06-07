@@ -4,8 +4,6 @@
  */
 package com.meli.interview.back.subscription_api.user;
 
-import com.meli.interview.back.subscription_api.session.User;
-
 /**
  *
  * @author Raul Rodriguez

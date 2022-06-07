@@ -4,8 +4,8 @@
  */
 package com.meli.interview.back.subscription_api.user;
 
-import com.meli.interview.back.subscription_api.session.User;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDAO implements IUserDAO{
     
+    @PersistenceContext
     private EntityManager em;
     
     @Override
