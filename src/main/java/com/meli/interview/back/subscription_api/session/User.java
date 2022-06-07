@@ -1,17 +1,29 @@
 package com.meli.interview.back.subscription_api.session;
 
 import com.meli.interview.back.subscription_api.subscription.Subscription;
+import java.io.Serializable;
 
-import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class User {
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
 
+    //Este atributo es mejor que sea long
+    @Id
+    @Column(name = "id")
     private String id;
+    
+    @Column(name="user_name")
     private String name;
 
-    private List<Subscription> subscriptions = new ArrayList<Subscription>();
-    private List<User> friends = new ArrayList<User>();
+    //No inicializar arrays a menos que se quieran crear una única vez
+    private List<Subscription> subscriptions;
+    private List<User> friends;
 
     public List<User> getFriends() {
         return friends;

@@ -1,9 +1,18 @@
 package com.meli.interview.back.subscription_api.user;
 
-public class UserController {
+import com.meli.interview.back.subscription_api.session.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
-    public String createUser() {
-        return "";
+@Controller
+public class UserController {
+    
+    @PostMapping
+    public String createUser(String id, String name) {
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        return "form";
     }
 
 }
