@@ -1,14 +1,17 @@
-package com.meli.interview.back.subscription_api.subscription;
+package com.meli.interview.back.subscription_api.subscription.services;
 
+import com.meli.interview.back.subscription_api.subscription.domain.Subscription;
 import com.meli.interview.back.subscription_api.exception.UserNotLoggedInException;
-import com.meli.interview.back.subscription_api.user.User;
+import com.meli.interview.back.subscription_api.user.domain.User;
 import com.meli.interview.back.subscription_api.session.UserSession;
+import com.meli.interview.back.subscription_api.subscription.dao.SubscriptionDAO;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
-public class SubscriptionService implements ISubscription {
+@Service
+public class SubscriptionService implements ISubscriptionService {
 
     @Autowired
     private SubscriptionDAO subDAO;

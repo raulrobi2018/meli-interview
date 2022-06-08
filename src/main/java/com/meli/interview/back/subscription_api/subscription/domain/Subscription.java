@@ -1,5 +1,6 @@
-package com.meli.interview.back.subscription_api.subscription;
+package com.meli.interview.back.subscription_api.subscription.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    @Column(name = "partner")
     private String partner;
 
     public float getPrice() {

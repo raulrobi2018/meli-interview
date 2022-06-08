@@ -1,7 +1,8 @@
-package com.meli.interview.back.subscription_api.subscription;
+package com.meli.interview.back.subscription_api.subscription.dao;
 
+import com.meli.interview.back.subscription_api.subscription.domain.Subscription;
 import com.meli.interview.back.subscription_api.exception.CollaboratorCallException;
-import com.meli.interview.back.subscription_api.user.User;
+import com.meli.interview.back.subscription_api.user.domain.User;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -18,7 +19,7 @@ public class SubscriptionDAO  implements ISubscriptionDAO{
     //No static, plural name, List not Arraylist
     public List<Subscription> findSubscriptionsByUser(User user) {
         try {
-          return em.createQuery("from Subscriptions").getResultList();
+          return em.createQuery("from Subscriptions where ").getResultList();
         } catch (Exception e) {
         throw new CollaboratorCallException(
             "TripDAO should not be invoked on an unit test.");
