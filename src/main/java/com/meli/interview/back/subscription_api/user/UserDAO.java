@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 /**
  *
@@ -23,6 +24,12 @@ public class UserDAO implements IUserDAO{
     @Transactional
     public void createUser(User user) {
         em.persist(user);
+    }
+
+    @Override
+    @Transactional
+    public List<User> list() {
+        return em.createQuery("from User").getResultList(); 
     }
     
 }

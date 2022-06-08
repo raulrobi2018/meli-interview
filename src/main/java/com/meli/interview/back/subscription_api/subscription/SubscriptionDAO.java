@@ -18,7 +18,7 @@ public class SubscriptionDAO  implements ISubscriptionDAO{
     //No static, plural name, List not Arraylist
     public List<Subscription> findSubscriptionsByUser(User user) {
         try {
-          return em.createQuery("from User").getResultList();
+          return em.createQuery("from Subscriptions").getResultList();
         } catch (Exception e) {
         throw new CollaboratorCallException(
             "TripDAO should not be invoked on an unit test.");
